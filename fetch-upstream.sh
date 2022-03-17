@@ -5,7 +5,7 @@ set -euxo pipefail
 git_clone_dir=$(mktemp -d -t git-clone-XXXXXXXXXX)
 
 shopt -s extglob
-rm -rv !("go.mod"|"fetch-upstream.sh") || true
+rm -rv !("go.mod"|"fetch-upstream.sh"|"README.md") || true
 shopt -u extglob
 
 git clone --depth 1 https://github.com/cilium/ebpf $git_clone_dir
