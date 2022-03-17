@@ -11,6 +11,7 @@ shopt -u extglob
 git clone --depth 1 https://github.com/cilium/ebpf $git_clone_dir
 
 cp -r "$git_clone_dir/internal/." .
+cp "$git_clone_dir/LICENSE" .
 
 find . -type f -name "*_test.go" -exec rm -rf {} \;
 rm -r "btf/testdata"
