@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/paulcacheux/cilium-btf/sys"
-	"github.com/paulcacheux/cilium-btf/unix"
+	"github.com/DataDog/btf-internals/sys"
+	"github.com/DataDog/btf-internals/unix"
 )
 
 func Pin(currentPath, newPath string, fd *sys.FD) error {

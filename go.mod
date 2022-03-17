@@ -1,4 +1,4 @@
-module github.com/paulcacheux/cilium-btf
+module github.com/DataDog/btf-internals
 
 go 1.17
 

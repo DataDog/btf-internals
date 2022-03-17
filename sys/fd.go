@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/paulcacheux/cilium-btf/unix"
+	"github.com/DataDog/btf-internals/unix"
 )
 
 var ErrClosedFd = unix.EBADF

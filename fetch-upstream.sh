@@ -18,7 +18,7 @@ rm -r "testutils"
 rm -r "cmd"
 
 upstream_mod="github.com/cilium/ebpf/internal"
-replace_mod="github.com/paulcacheux/cilium-btf"
+replace_mod="github.com/DataDog/btf-internals"
 find . -type f -name "*.go" -exec sed -i "" "s|$upstream_mod|$replace_mod|g" {} \;
 
 go mod tidy
