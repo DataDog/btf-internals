@@ -3,7 +3,7 @@ package sys
 import (
 	"unsafe"
 
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 // NewPointer creates a 64-bit pointer from an unsafe Pointer.

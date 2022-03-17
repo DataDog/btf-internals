@@ -3,9 +3,9 @@ package btf
 import (
 	"bytes"
 
-	"github.com/paulcacheux/cilium-btf/fork"
-	"github.com/paulcacheux/cilium-btf/fork/sys"
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf"
+	"github.com/paulcacheux/cilium-btf/sys"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 // info describes a BTF object.

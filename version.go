@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 const (

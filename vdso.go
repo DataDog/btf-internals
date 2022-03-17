@@ -9,7 +9,7 @@ import (
 	"math"
 	"os"
 
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 var (

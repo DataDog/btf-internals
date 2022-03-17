@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 // ErrorWithLog returns an error that includes logs from the

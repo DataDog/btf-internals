@@ -3,22 +3,23 @@
 set -euxo pipefail
 
 git_clone_dir=$(mktemp -d -t git-clone-XXXXXXXXXX)
-root_dir=fork
 
-rm -r $root_dir
-rm go.sum
+shopt -s extglob
+rm -rv !("go.mod"|"fetch-upstream.sh") || true
+shopt -u extglob
 
 git clone --depth 1 https://github.com/cilium/ebpf $git_clone_dir
 
-cp -r "$git_clone_dir/internal" .
-mv internal $root_dir
+cp -r "$git_clone_dir/internal/." .
 
-find $root_dir -type f -name "*_test.go" -exec rm -rf {} \;
-rm -r "$root_dir/btf/testdata"
-rm -r "$root_dir/testutils"
-rm -r "$root_dir/cmd"
+find . -type f -name "*_test.go" -exec rm -rf {} \;
+rm -r "btf/testdata"
+rm -r "testutils"
+rm -r "cmd"
 
-find $root_dir -type f -name "*.go" -exec sed -i "" "s|github.com/cilium/ebpf/internal|github.com/paulcacheux/cilium-btf/fork|g" {} \;
+upstream_mod="github.com/cilium/ebpf/internal"
+replace_mod="github.com/paulcacheux/cilium-btf"
+find . -type f -name "*.go" -exec sed -i "" "s|$upstream_mod|$replace_mod|g" {} \;
 
 go mod tidy
 

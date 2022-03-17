@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/paulcacheux/cilium-btf/fork"
-	"github.com/paulcacheux/cilium-btf/fork/unix"
+	"github.com/paulcacheux/cilium-btf"
+	"github.com/paulcacheux/cilium-btf/unix"
 )
 
 // Poller waits for readiness notifications from multiple file descriptors.
