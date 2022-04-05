@@ -5,7 +5,7 @@ set -euxo pipefail
 git_clone_dir=$(mktemp -d -t git-clone-XXXXXXXXXX)
 
 shopt -s extglob
-rm -rv !("go.mod"|"fetch-upstream.sh"|"README.md") || true
+rm -rv !("go.mod"|"fetch-upstream.sh"|"README.md"|"patches") || true
 shopt -u extglob
 
 git clone --depth 1 https://github.com/cilium/ebpf $git_clone_dir
@@ -21,6 +21,8 @@ rm -r "cmd"
 upstream_mod="github.com/cilium/ebpf/internal"
 replace_mod="github.com/DataDog/btf-internals"
 find . -type f -name "*.go" -exec sed -i "" "s|$upstream_mod|$replace_mod|g" {} \;
+
+git apply patches/load_spec_without_cache.patch
 
 go mod tidy
 
