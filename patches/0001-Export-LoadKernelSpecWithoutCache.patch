@@ -1,18 +1,18 @@
-From f65bd0b466d577ff3c51d0e0329e94e8a0194989 Mon Sep 17 00:00:00 2001
+From 3f1802aa5e9de4facac5a531d1a99b6a42d2936c Mon Sep 17 00:00:00 2001
 From: Paul Cacheux <paul.cacheux@datadoghq.com>
-Date: Fri, 1 Apr 2022 11:39:27 +0200
-Subject: [PATCH] Add `LoadKernelSpecWithoutCache`
+Date: Tue, 10 May 2022 11:01:37 +0200
+Subject: [PATCH] Export `LoadKernelSpecWithoutCache`
 
 ---
  btf/btf.go | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/btf/btf.go b/btf/btf.go
-index a22a9b9..61c8ccb 100644
+index 93b1c45..fa64aa1 100644
 --- a/btf/btf.go
 +++ b/btf/btf.go
 @@ -13,7 +13,7 @@ import (
- 	"sort"
+ 	"reflect"
  	"sync"
  
 -	"github.com/DataDog/btf-internals"
@@ -20,7 +20,7 @@ index a22a9b9..61c8ccb 100644
  	"github.com/DataDog/btf-internals/sys"
  	"github.com/DataDog/btf-internals/unix"
  )
-@@ -341,14 +341,14 @@ func LoadKernelSpec() (*Spec, error) {
+@@ -262,14 +262,14 @@ func LoadKernelSpec() (*Spec, error) {
  	}
  
  	var err error
@@ -38,3 +38,6 @@ index a22a9b9..61c8ccb 100644
  	fh, err := os.Open("/sys/kernel/btf/vmlinux")
  	if err == nil {
  		defer fh.Close()
+-- 
+2.36.1
+
