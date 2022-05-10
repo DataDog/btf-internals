@@ -22,7 +22,7 @@ upstream_mod="github.com/cilium/ebpf/internal"
 replace_mod="github.com/DataDog/btf-internals"
 find . -type f -name "*.go" -exec sed -i "" "s|$upstream_mod|$replace_mod|g" {} \;
 
-# git apply patches/load_spec_without_cache.patch
+git apply patches/*.patch
 
 go mod tidy
 
