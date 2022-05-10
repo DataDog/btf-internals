@@ -13,7 +13,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/DataDog/btf-internals"
+	internal "github.com/DataDog/btf-internals"
 	"github.com/DataDog/btf-internals/sys"
 	"github.com/DataDog/btf-internals/unix"
 )
@@ -262,14 +262,14 @@ func LoadKernelSpec() (*Spec, error) {
 	}
 
 	var err error
-	kernelBTF.Spec, err = loadKernelSpec()
+	kernelBTF.Spec, err = LoadKernelSpecWithoutCache()
 	return kernelBTF.Spec, err
 }
 
-// loadKernelSpec attempts to load the raw vmlinux BTF blob at
+// LoadKernelSpecWithoutCache attempts to load the raw vmlinux BTF blob at
 // /sys/kernel/btf/vmlinux and falls back to scanning the file system
 // for vmlinux ELFs.
-func loadKernelSpec() (*Spec, error) {
+func LoadKernelSpecWithoutCache() (*Spec, error) {
 	fh, err := os.Open("/sys/kernel/btf/vmlinux")
 	if err == nil {
 		defer fh.Close()
